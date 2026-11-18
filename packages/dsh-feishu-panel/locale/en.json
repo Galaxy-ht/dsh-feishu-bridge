@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "Feishu bridge panel",
+    "description": "Graphical settings for the DSH Feishu bridge: session mapping, dialog placement, streaming and card content, plus live status.",
+    "detail": "docs/DETAIL.md"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "dsh-feishu-bridge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "DeepSeek Harness ↔ 飞书：流式互动卡片 + 卡内审批 + 控制面板。",
+  "license": "MIT",
+  "keywords": ["dsh", "deepseek-harness", "feishu", "lark", "card", "streaming", "approval"],
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "check": "node --check packages/dsh-feishu-card/lib/entry.js && node --check packages/dsh-feishu-card/lib/card.js && node --check packages/dsh-feishu-card/lib/feishu.js && node --check packages/dsh-feishu-card/lib/lark.js && node --check packages/dsh-feishu-card/lib/store.js && node --check packages/dsh-feishu-panel/index.js && node --check packages/dsh-feishu-panel/client.js"
+  }
+}
