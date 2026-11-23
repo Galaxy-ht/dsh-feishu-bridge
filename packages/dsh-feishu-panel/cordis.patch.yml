@@ -2,4 +2,4 @@
 # The Client half loads from `dsh.client` and registers the settings section.
 - insert:
     - id: feishu-panel
-      name: 'dsh-feishu-panel'
+      name: '@ethanhale_/dsh-feishu-panel'

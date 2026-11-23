@@ -1,5 +1,5 @@
 {
-  "name": "dsh-feishu-card",
+  "name": "@ethanhale_/dsh-feishu-card",
   "version": "0.1.0",
   "type": "module",
   "description": "DSH ↔ 飞书流式卡片桥：把每一轮对话变成一张持续更新、可直接操作的互动卡片。",

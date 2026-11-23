@@ -1,4 +1,4 @@
 # 飞书流式卡片桥：只插入 host 插件，输出由本地 session 事件驱动，不经过模型。
 - insert:
     - id: feishu-card
-      name: 'dsh-feishu-card'
+      name: '@ethanhale_/dsh-feishu-card'

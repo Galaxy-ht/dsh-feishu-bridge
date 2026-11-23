@@ -1,5 +1,5 @@
 {
-  "name": "dsh-feishu-panel",
+  "name": "@ethanhale_/dsh-feishu-panel",
   "version": "0.1.0",
   "type": "module",
   "description": "DSH 飞书桥的控制面板：会话映射、弹窗位置、流式与展示、凭据与运行状态，全部图形化配置。",
