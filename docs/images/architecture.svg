@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 460" width="1100" height="460" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <linearGradient id="dsh" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5b7cfa"/>
+      <stop offset="1" stop-color="#3370ff"/>
+    </linearGradient>
+    <linearGradient id="feishu" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#36c5f0"/>
+      <stop offset="1" stop-color="#2ea121"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#9aa4b2"/>
+    </marker>
+  </defs>
+
+  <rect width="1100" height="460" fill="#0f1116"/>
+  <text x="40" y="52" fill="#e8e9ec" font-size="22" font-weight="600">DSH Feishu Bridge · 架构</text>
+  <text x="40" y="78" fill="#8b93a1" font-size="13">卡片内容来自本地 session 事件，不经过模型；写卡有两条通道</text>
+
+  <!-- DSH -->
+  <rect x="40" y="120" width="250" height="270" rx="14" fill="#171a21" stroke="#2a2f3a"/>
+  <text x="64" y="154" fill="#e8e9ec" font-size="15" font-weight="600">DeepSeek Harness</text>
+  <rect x="64" y="176" width="202" height="46" rx="8" fill="url(#dsh)" opacity="0.16"/>
+  <text x="80" y="204" fill="#c7d2fe" font-size="13">Session 事件流</text>
+  <rect x="64" y="234" width="202" height="46" rx="8" fill="#1f2430"/>
+  <text x="80" y="262" fill="#c9d1d9" font-size="13">审批 / 提问请求</text>
+  <rect x="64" y="292" width="202" height="46" rx="8" fill="#1f2430"/>
+  <text x="80" y="320" fill="#c9d1d9" font-size="13">设置 →「飞书」页</text>
+  <text x="64" y="368" fill="#8b93a1" font-size="12">插件运行在 Host 进程</text>
+
+  <!-- bridge -->
+  <rect x="370" y="120" width="300" height="270" rx="14" fill="#171a21" stroke="#2a2f3a"/>
+  <text x="394" y="154" fill="#e8e9ec" font-size="15" font-weight="600">dsh-feishu-card</text>
+  <rect x="394" y="176" width="252" height="40" rx="8" fill="#1f2430"/>
+  <text x="410" y="201" fill="#c9d1d9" font-size="12">卡片视图 · 状态机 · 会话映射</text>
+  <rect x="394" y="226" width="252" height="40" rx="8" fill="#1f2430"/>
+  <text x="410" y="251" fill="#c9d1d9" font-size="12">CardKit 实体卡 + 流式文本</text>
+  <rect x="394" y="276" width="252" height="40" rx="8" fill="#1f2430"/>
+  <text x="410" y="301" fill="#c9d1d9" font-size="12">事件消费（消息 / 按钮回调）</text>
+  <rect x="394" y="326" width="252" height="40" rx="8" fill="#1f2430"/>
+  <text x="410" y="351" fill="#c9d1d9" font-size="12">总开关 · 失败通知</text>
+
+  <!-- panel -->
+  <rect x="740" y="120" width="150" height="270" rx="14" fill="#171a21" stroke="#2a2f3a"/>
+  <text x="762" y="154" fill="#e8e9ec" font-size="14" font-weight="600">面板</text>
+  <text x="762" y="182" fill="#8b93a1" font-size="12">dsh-feishu-</text>
+  <text x="762" y="200" fill="#8b93a1" font-size="12">panel</text>
+  <text x="762" y="238" fill="#c9d1d9" font-size="12">配置读写</text>
+  <text x="762" y="264" fill="#c9d1d9" font-size="12">扫码登录</text>
+  <text x="762" y="290" fill="#c9d1d9" font-size="12">授权检查</text>
+  <text x="762" y="316" fill="#c9d1d9" font-size="12">运行状态</text>
+
+  <!-- feishu -->
+  <rect x="940" y="120" width="120" height="270" rx="14" fill="#171a21" stroke="#2a2f3a"/>
+  <rect x="958" y="150" width="84" height="84" rx="16" fill="url(#feishu)" opacity="0.9"/>
+  <text x="1000" y="200" fill="#fff" font-size="13" text-anchor="middle">飞书</text>
+  <text x="1000" y="262" fill="#c9d1d9" font-size="12" text-anchor="middle">会话群</text>
+  <text x="1000" y="288" fill="#8b93a1" font-size="11" text-anchor="middle">卡片 / 审批</text>
+  <text x="1000" y="314" fill="#8b93a1" font-size="11" text-anchor="middle">按钮回调</text>
+
+  <!-- arrows -->
+  <line x1="290" y1="255" x2="366" y2="255" stroke="#9aa4b2" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <line x1="890" y1="255" x2="936" y2="255" stroke="#9aa4b2" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <line x1="890" y1="200" x2="686" y2="200" stroke="#9aa4b2" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+  <text x="742" y="190" fill="#8b93a1" font-size="11">读写同一份配置</text>
+
+  <text x="40" y="430" fill="#5f6774" font-size="12">OpenAPI 直连负责更新频率（~150–300ms），CardKit 负责打字机动画；sequence 严格串行。</text>
+</svg>

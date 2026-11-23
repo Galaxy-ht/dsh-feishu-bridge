@@ -41,6 +41,24 @@ const MAX_BODY = 64 * 1024
  */
 const SCHEMA = [
   {
+    id: 'general',
+    title: { zh: '总开关', en: 'Master switch' },
+    description: {
+      zh: '关掉后飞书不再收到任何卡片，审批与提问交回桌面；重新打开即时生效，无需重启。',
+      en: 'Off stops every card and hands approvals back to the desktop. Changes apply immediately.',
+    },
+    fields: [
+      {
+        key: 'enabled', type: 'boolean', default: true,
+        label: { zh: '启用飞书桥', en: 'Enable the Feishu bridge' },
+        help: {
+          zh: '关闭期间不建卡、不发消息、不接管审批与提问；已存在的卡片保持原样。',
+          en: 'While off: no new cards, no messages, no approvals or questions; existing cards are left untouched.',
+        },
+      },
+    ],
+  },
+  {
     id: 'routing',
     title: { zh: '会话映射', en: 'Session mapping' },
     description: {
@@ -410,7 +428,9 @@ async function buildStatus() {
   const bindings = readJson(BINDINGS_PATH, {})
   const sessions = Object.values(bindings.sessions || {})
   const chats = Object.entries(bindings.chats || {})
+  const bridgeConfig = readJson(CONFIG_PATH, {})
   return {
+    enabled: bridgeConfig.enabled !== false,
     configPath: CONFIG_PATH,
     secretPath: SECRET_PATH,
     logPath: LOG_PATH,
@@ -648,7 +668,9 @@ export function apply(ctx) {
         }
       }
       writeJson(CONFIG_PATH, config)
-      sendJson(res, 200, { applied, restartRequired: Object.keys(applied).length > 0 })
+      // enabled is reloaded by the bridge on the next turn, so it needs no restart.
+      const keys = Object.keys(applied)
+      sendJson(res, 200, { applied, restartRequired: keys.some(key => key !== 'enabled') })
     } catch (error) {
       sendJson(res, 400, { error: String(error?.message || error) })
     }

@@ -122,6 +122,29 @@ export function apply(ctx) {
 /** @param {import('@deepseek-ai/cordis').Context} ctx */
 function applyInner(ctx) {
   const CONFIG = readConfig()
+
+/**
+ * Re-read the user config so the panel's master switch applies live.
+ *
+ * Only `enabled` is hot-reloaded: turning the bridge off stops new cards and
+ * hands approvals/questions back to the desktop immediately, while every other
+ * key still takes effect at mount (documented in the README).
+ */
+function reloadConfig() {
+  try {
+    const next = readConfig()
+    for (const key of Object.keys(next)) CONFIG[key] = next[key]
+    CONFIG.enabled = next.enabled !== false
+  } catch (error) {
+    debugLog(`config reload failed: ${String(error?.message || error)}`)
+  }
+}
+
+/** Whether the bridge should speak for this session right now. */
+function bridgeEnabled() {
+  reloadConfig()
+  return CONFIG.enabled !== false
+}
   // Only `agents` is a hard dependency; every other Host service is looked up
   // unchecked so a profile without one of them still mounts the bridge.
   const service = key => {
@@ -584,6 +607,7 @@ function applyInner(ctx) {
 
   /** Create the card once; concurrent ticks all wait on the same attempt. */
   async function createCardOnce(turn) {
+    if (!CONFIG.enabled) return
     if (turn.creating) return
     if (turn.createFails >= 3) { turn.cardBroken = true; return }
     turn.creating = true
@@ -1610,6 +1634,7 @@ function applyInner(ctx) {
   }
 
   async function onApprovalRequest(request, next) {
+    if (!bridgeEnabled()) return next()
     const agent = request?.agent
     if (!isHumanFacing(agent)) return next()
     const sessionId = sessionIdOf(agent)
@@ -1756,6 +1781,7 @@ function applyInner(ctx) {
     const agent = request?.agent
     if (!isHumanFacing(agent)) return next()
     const sessionId = sessionIdOf(agent)
+    if (!bridgeEnabled()) return next()
     const questions = Array.isArray(request?.questions) ? request.questions : []
     if (!sessionId || questions.length === 0) return next()
     // Several questions (or a multi-select, which needs a checkbox form) become
@@ -2184,6 +2210,7 @@ function applyInner(ctx) {
     if (disposed) return
     const incomingId = String(event?.message_id || event?.id || '').trim()
     if (incomingId && bindings.handledIncoming[incomingId]) return
+    if (!bridgeEnabled()) return
     const authorized = await ensureUser()
     if (event?.sender_type === 'bot' || event?.sender_id !== authorized.openId) return
 
