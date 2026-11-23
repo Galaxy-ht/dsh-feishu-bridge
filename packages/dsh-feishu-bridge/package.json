@@ -1,6 +1,6 @@
 {
   "name": "@ethanhale_/dsh-feishu-bridge",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "DSH ↔ 飞书：流式互动卡片 + 卡内审批 + 控制面板，二合一安装包。",
   "license": "MIT",

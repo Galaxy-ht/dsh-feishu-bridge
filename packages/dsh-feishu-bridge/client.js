@@ -7,7 +7,7 @@
  * so adding a setting never requires touching the Client.
  */
 window.__ModuleLoader__.load({
-  id: '@ethanhale_/dsh-feishu-panel',
+  id: '@ethanhale_/dsh-feishu-bridge',
   factory: (require) => {
     var module = { exports: {} }
     var exports = module.exports
