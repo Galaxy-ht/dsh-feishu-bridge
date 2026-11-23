@@ -36,14 +36,14 @@
     }
   },
   "author": "DSH Feishu Bridge contributors",
-  "homepage": "https://github.com/<owner>/dsh-feishu-bridge#readme",
+  "homepage": "https://github.com/Galaxy-ht/dsh-feishu-bridge#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/<owner>/dsh-feishu-bridge.git",
+    "url": "git+https://github.com/Galaxy-ht/dsh-feishu-bridge.git",
     "directory": "packages/dsh-feishu-panel"
   },
   "bugs": {
-    "url": "https://github.com/<owner>/dsh-feishu-bridge/issues"
+    "url": "https://github.com/Galaxy-ht/dsh-feishu-bridge/issues"
   },
   "engines": {
     "dsh": ">=0.2.0"
