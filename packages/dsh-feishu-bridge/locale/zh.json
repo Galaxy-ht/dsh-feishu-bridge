@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "飞书桥控制面板",
+    "description": "图形化配置 DSH 飞书桥：会话映射、弹窗位置、流式刷新、卡片内容与运行状态。",
+    "detail": "docs/DETAIL.md"
+  }
+}

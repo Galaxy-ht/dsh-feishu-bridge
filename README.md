@@ -47,8 +47,7 @@
 ## 试用 30 秒
 
 ```text
-Plugins → Add plugin → packages/dsh-feishu-card
-Plugins → Add plugin → packages/dsh-feishu-panel
+dsh plugin add @ethanhale_/dsh-feishu-bridge
 重启 DSH → 设置 →「飞书」→ 扫码登录 → 打开「启用飞书桥」
 ```
 
@@ -65,13 +64,12 @@ Plugins → Add plugin → packages/dsh-feishu-panel
 ### 1. 安装
 
 ```powershell
-# 已发布到 npm 后（推荐）
+# 一条命令装齐（桥 + 面板）
+dsh plugin add @ethanhale_/dsh-feishu-bridge
+
+# 只要其中一个时，分开装
 dsh plugin add @ethanhale_/dsh-feishu-card
 dsh plugin add @ethanhale_/dsh-feishu-panel
-
-# 或者直接从源码目录安装
-dsh plugin add <本仓库>/packages/dsh-feishu-card
-dsh plugin add <本仓库>/packages/dsh-feishu-panel
 ```
 
 装完**重启 DSH**。面板会出现在 设置 →「飞书」。

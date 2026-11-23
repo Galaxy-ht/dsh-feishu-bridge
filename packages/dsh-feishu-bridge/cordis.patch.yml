@@ -1,0 +1,7 @@
+# 整合包：一次安装，桥 + 面板都到位。
+# 两个 row 指向同一个包的不同入口（exports 里分别导出）。
+- insert:
+    - id: feishu-card
+      name: '@ethanhale_/dsh-feishu-bridge/bridge'
+    - id: feishu-panel
+      name: '@ethanhale_/dsh-feishu-bridge'
