@@ -7,6 +7,8 @@
 状态、正文、执行过程、统计都在同一张卡上实时刷新——而不是刷出一串消息。审批与提问也落在卡片里，形成闭环。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-3370ff.svg)](./LICENSE)
+[![npm card](https://img.shields.io/npm/v/@ethanhale_/dsh-feishu-card?label=card&color=cb3837)](https://www.npmjs.com/package/@ethanhale_/dsh-feishu-card)
+[![npm panel](https://img.shields.io/npm/v/@ethanhale_/dsh-feishu-panel?label=panel&color=cb3837)](https://www.npmjs.com/package/@ethanhale_/dsh-feishu-panel)
 [![DSH](https://img.shields.io/badge/DeepSeek%20Harness-plugin-5b7cfa.svg)](https://github.com/deepseek-ai)
 [![Feishu](https://img.shields.io/badge/Feishu-CardKit-2ea121.svg)](https://open.feishu.cn)
 [![Version](https://img.shields.io/badge/version-0.1.0-informational.svg)](./CHANGELOG.md)
