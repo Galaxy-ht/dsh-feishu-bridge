@@ -44,6 +44,13 @@
   <sub>设置 →「飞书」：总开关、登录与凭据、授权检查、运行状态、配置分组</sub>
 </div>
 
+## 在 DSH 里安装
+
+<div align="center">
+  <img src="./docs/images/install.png" alt="在 DSH 的插件页添加本插件" width="820">
+  <sub>Plugins → 添加插件 → 填入 <code>@ethanhale_/dsh-feishu-bridge</code> → 安装</sub>
+</div>
+
 ## 试用 30 秒
 
 ```text
