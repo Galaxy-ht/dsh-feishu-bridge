@@ -1,21 +1,48 @@
 {
   "name": "dsh-feishu-card",
   "version": "0.1.0",
-  "private": true,
   "type": "module",
   "description": "DSH ↔ 飞书流式卡片桥：把每一轮对话变成一张持续更新、可直接操作的互动卡片。",
   "license": "MIT",
-  "keywords": ["dsh", "deepseek-harness", "feishu", "lark", "card", "streaming"],
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "feishu",
+    "lark",
+    "card",
+    "streaming"
+  ],
   "main": "lib/entry.js",
   "exports": {
     ".": "./lib/entry.js",
     "./cordis.patch.yml": "./cordis.patch.yml",
     "./package.json": "./package.json"
   },
-  "files": ["lib", "cordis.patch.yml", "README.md", "LICENSE"],
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
   "dsh": {
     "bundle": {
       "patch": "./cordis.patch.yml"
     }
+  },
+  "author": "DSH Feishu Bridge contributors",
+  "homepage": "https://github.com/<owner>/dsh-feishu-bridge#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/<owner>/dsh-feishu-bridge.git",
+    "directory": "packages/dsh-feishu-card"
+  },
+  "bugs": {
+    "url": "https://github.com/<owner>/dsh-feishu-bridge/issues"
+  },
+  "engines": {
+    "dsh": ">=0.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

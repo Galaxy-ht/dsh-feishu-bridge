@@ -63,6 +63,11 @@ Plugins → Add plugin → packages/dsh-feishu-panel
 ### 1. 安装
 
 ```powershell
+# 已发布到 npm 后（推荐）
+dsh plugin add dsh-feishu-card
+dsh plugin add dsh-feishu-panel
+
+# 或者直接从源码目录安装
 dsh plugin add <本仓库>/packages/dsh-feishu-card
 dsh plugin add <本仓库>/packages/dsh-feishu-panel
 ```
